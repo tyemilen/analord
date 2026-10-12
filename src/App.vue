@@ -6,10 +6,10 @@ import FlowerIcon from './components/icons/FlowerIcon.vue';
 import WindowComponent from './components/WindowComponent.vue';
 
 const {
-	sortedByPing, 
-	isLoading, 
+	sortedByPing,
+	isLoading,
 	isPinging,
-	loadAndPing
+	loadAndPing,
 } = useInstances(['https://searx.space/data/instances.json']);
 
 interface ActiveInstance {
@@ -34,16 +34,16 @@ const prettyDate = computed<PrettyDate>(() => {
 		hour: date.getHours(),
 		minute: date.getMinutes(),
 		month: date.getMonth(),
-		monthName: date.toLocaleString('default', { month: 'short' })
-	}
-})
+		monthName: date.toLocaleString('default', { month: 'short' }),
+	};
+});
 const activeInstance = computed<ActiveInstance>(() => {
 	const instance = sortedByPing.value[activeInstanceIndex.value];
 	return {
 		host: instance ? new URL(instance.url).host : '',
 		url: instance?.url || '',
-		ping: instance?.ping || 0
-	}
+		ping: instance?.ping || 0,
+	};
 });
 
 onMounted(() => {
@@ -53,7 +53,7 @@ onMounted(() => {
 const searchQuery = ref('');
 const search = () => {
 	window.location.href = new URL(`/search?q=${encodeURIComponent(searchQuery.value)}`, activeInstance.value.url).toString();
-}
+};
 
 </script>
 
