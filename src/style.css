@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: 'Gamja Flower';
+	src: url('./assets/fonts/GamjaFlower-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	--font-flower: 'Gamja Flower', cursive, sans-serif;
+	--animate-loading: loading 2s ease-in-out infinite;
+
+	@keyframes loading {
+		0% { 
+			transform: rotate(0deg); 
+		}
+		60% { 
+			transform: rotate(360deg);
+		}
+
+		80% {
+			transform: rotate(350deg);
+		}
+		
+		100% { 
+			transform: rotate(360deg);
+		}
+	}
+}
